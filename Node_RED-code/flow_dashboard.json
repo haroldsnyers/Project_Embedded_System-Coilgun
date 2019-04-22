@@ -1,0 +1,653 @@
+[
+    {
+        "id": "83bd906b.1d5e3",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "2f812327.2b419c",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "fa413cf0.2702a",
+        "type": "ui_group",
+        "z": "",
+        "name": "Measurement",
+        "tab": "",
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "bd3df9d5.9ae5e8",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-dark",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#097479",
+                    "value": "#097479",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#097479",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#000000",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#0eb8c0",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#555555",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#eeeeee",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#097479",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "de6870d1.52c55",
+        "type": "ui_group",
+        "z": "",
+        "name": "Group 1",
+        "tab": "",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "47b78f24.ddeb8",
+        "type": "ui_group",
+        "z": "",
+        "name": "Action center",
+        "tab": "",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "3d74c74a.1973b8",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "47b78f24.ddeb8",
+        "order": 2,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "189948c5.9be237",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "fa413cf0.2702a",
+        "order": 1,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "74c762a2.e1384c",
+        "type": "ui_group",
+        "z": "",
+        "name": "Voltage parameters",
+        "tab": "",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "fbe5272f.7a91c8",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "74c762a2.e1384c",
+        "order": 2,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "418d2125.0ca91",
+        "type": "ui_group",
+        "z": "",
+        "name": "Group 1",
+        "tab": "",
+        "order": 1,
+        "disp": false,
+        "width": "6"
+    },
+    {
+        "id": "84447600.5c2778",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "",
+        "broker": "192.168.1.36",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "198874f7.cee27b",
+        "type": "ui_group",
+        "z": "",
+        "name": "Speed measurement",
+        "tab": "36df5806.4d0f48",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "2d96c1a6.20092e",
+        "type": "ui_group",
+        "z": "",
+        "name": "Voltage parameters",
+        "tab": "36df5806.4d0f48",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "36df5806.4d0f48",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Home - measurement",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "80bf5b8a.fdf278",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "",
+        "broker": "172.17.4.72",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "d6b64a28.a58ca8",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "",
+        "broker": "192.168.1.36",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "f5a4ca54.5ace08",
+        "type": "ui_group",
+        "z": "",
+        "name": "Current measurement",
+        "tab": "36df5806.4d0f48",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "806bb5aa.5729f8",
+        "type": "ui_group",
+        "z": "",
+        "name": "Energy and output determination",
+        "tab": "36df5806.4d0f48",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "a0fda800.ed7d68",
+        "type": "mqtt in",
+        "z": "83bd906b.1d5e3",
+        "name": "",
+        "topic": "sensor/time",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "84447600.5c2778",
+        "x": 130,
+        "y": 260,
+        "wires": [
+            [
+                "8d7cc881.318df8",
+                "fdc5dd5f.5a7c5"
+            ]
+        ]
+    },
+    {
+        "id": "8d7cc881.318df8",
+        "type": "ui_gauge",
+        "z": "83bd906b.1d5e3",
+        "name": "",
+        "group": "198874f7.cee27b",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Time",
+        "label": "ms",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "5000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "1500",
+        "seg2": "3000",
+        "x": 450,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "1d6a5e14.703cb2",
+        "type": "ui_text",
+        "z": "83bd906b.1d5e3",
+        "group": "198874f7.cee27b",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Speed [m/s]",
+        "format": "{{value}} m/s",
+        "layout": "row-spread",
+        "x": 510,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "fe836efa.6c12d",
+        "type": "ui_slider",
+        "z": "83bd906b.1d5e3",
+        "name": "",
+        "label": "slider",
+        "tooltip": "",
+        "group": "2d96c1a6.20092e",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "outs": "end",
+        "topic": "",
+        "min": "1",
+        "max": "50",
+        "step": "10",
+        "x": 150,
+        "y": 780,
+        "wires": [
+            [
+                "2c329c99.afbde4",
+                "67de3f0a.2e07d"
+            ]
+        ]
+    },
+    {
+        "id": "2c329c99.afbde4",
+        "type": "ui_gauge",
+        "z": "83bd906b.1d5e3",
+        "name": "",
+        "group": "2d96c1a6.20092e",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Enter Voltage",
+        "label": "Volt",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "15",
+        "seg2": "35",
+        "x": 400,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "1e7fb79a.7dd998",
+        "type": "mqtt out",
+        "z": "83bd906b.1d5e3",
+        "name": "",
+        "topic": "sensor/test",
+        "qos": "",
+        "retain": "",
+        "broker": "d6b64a28.a58ca8",
+        "x": 610,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "c3de518f.53f11",
+        "type": "ui_switch",
+        "z": "83bd906b.1d5e3",
+        "name": "SetVoltage",
+        "label": "switch",
+        "tooltip": "",
+        "group": "2d96c1a6.20092e",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "switch",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 130,
+        "y": 900,
+        "wires": [
+            [
+                "67de3f0a.2e07d"
+            ]
+        ]
+    },
+    {
+        "id": "67de3f0a.2e07d",
+        "type": "function",
+        "z": "83bd906b.1d5e3",
+        "name": "final function",
+        "func": "var state = context.get('state') || false;\n\nif (msg.topic == 'switch') {\n    state = msg.payload;\n    context.set('state', state);\n}\n\nvar message;\nif (state === false){\n    message = 0;\n    //msg.payload = message;\n    //return msg;\n}\nelse if (state === true){\n    message = 1;\n}\n\nif (message === 1){\n    if (msg !== 'true')\n        return msg\n}\n    \n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 390,
+        "y": 860,
+        "wires": [
+            [
+                "1e7fb79a.7dd998"
+            ]
+        ]
+    },
+    {
+        "id": "fdc5dd5f.5a7c5",
+        "type": "function",
+        "z": "83bd906b.1d5e3",
+        "name": "",
+        "func": "context.data = context.data || {};\nswitch (msg.topic){\n    case \"sensor/time\":\n        context.data.time = msg.payload;\n        msg = null;\n        break;\n    case \"distance\":\n        context.data.distance = msg.payload\n        msg = null;\n        break;\n    default:\n        msg = null;\n        break;\n}\n\nif (context.data.time != null && context.data.distance != null){\n    var speed = context.data.distance / context.data.time * 10;\n    context.data = null;\n    var speedp = speed.toPrecision(6);\n    return {payload:speedp};\n} else return msg\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 330,
+        "y": 360,
+        "wires": [
+            [
+                "1d6a5e14.703cb2"
+            ]
+        ]
+    },
+    {
+        "id": "e32356d6.c7a958",
+        "type": "ui_text_input",
+        "z": "83bd906b.1d5e3",
+        "name": "",
+        "label": "Distance to target [cm]",
+        "tooltip": "Enter distance to target",
+        "group": "198874f7.cee27b",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "number",
+        "delay": "0",
+        "topic": "distance",
+        "x": 140,
+        "y": 360,
+        "wires": [
+            [
+                "fdc5dd5f.5a7c5"
+            ]
+        ]
+    },
+    {
+        "id": "7701ae6f.572c8",
+        "type": "mqtt in",
+        "z": "83bd906b.1d5e3",
+        "name": "",
+        "topic": "sensor/current",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "80bf5b8a.fdf278",
+        "x": 150,
+        "y": 520,
+        "wires": [
+            [
+                "6827467b.bf1028"
+            ]
+        ]
+    },
+    {
+        "id": "b3fdb92b.1ce1d8",
+        "type": "mqtt in",
+        "z": "83bd906b.1d5e3",
+        "name": "",
+        "topic": "sensor/output",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "84447600.5c2778",
+        "x": 140,
+        "y": 640,
+        "wires": [
+            [
+                "c2f0b80a.a66008"
+            ]
+        ]
+    },
+    {
+        "id": "6827467b.bf1028",
+        "type": "ui_gauge",
+        "z": "83bd906b.1d5e3",
+        "name": "",
+        "group": "f5a4ca54.5ace08",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Current",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 390,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "c2f0b80a.a66008",
+        "type": "ui_gauge",
+        "z": "83bd906b.1d5e3",
+        "name": "",
+        "group": "806bb5aa.5729f8",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Output",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#ff0000",
+            "#e6e600",
+            "#00ff00"
+        ],
+        "seg1": "35",
+        "seg2": "70",
+        "x": 370,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "52be90f2.35117",
+        "type": "ui_text",
+        "z": "83bd906b.1d5e3",
+        "group": "2d96c1a6.20092e",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Status",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 380,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "56a5d0d6.12304",
+        "type": "mqtt in",
+        "z": "83bd906b.1d5e3",
+        "name": "",
+        "topic": "sensor/conf",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "84447600.5c2778",
+        "x": 180,
+        "y": 980,
+        "wires": [
+            [
+                "52be90f2.35117"
+            ]
+        ]
+    }
+]
