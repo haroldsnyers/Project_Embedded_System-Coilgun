@@ -57,6 +57,6 @@ The voltage bloc works with the following nodes :
 
 The voltage will be send to the arduino if the switch is ON and the slider has been moved after that with the following questions :
 
-<img src="screenshots/flow-voltage.png" width="600px">
+<img src="screenshots/flow-voltage.png" width="400px">
 
 The status mqtt IN sends a status message about the launch if the voltage has been send properly to the arduino.
