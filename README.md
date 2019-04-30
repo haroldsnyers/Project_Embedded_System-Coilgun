@@ -44,6 +44,7 @@ The Speed bloc works with the following nodes :
 - **_mqtt IN node_** to subscribe to the topic sensor/time
 
 The speed will only be displayed if the distance has been given and the time has been pusblished. This can be done with the following function :
+
 <img src="screenshots/flow-speed.png" width="600px">
 
 The voltage bloc works with the following nodes :
@@ -55,6 +56,7 @@ The voltage bloc works with the following nodes :
 - **_mqtt OUT node_** to publish to the topic sensor/test
 
 The voltage will be send to the arduino if the switch is ON and the slider has been moved after that with the following questions :
+
 <img src="screenshots/flow-voltage.png" width="600px">
 
 The status mqtt IN sends a status message about the launch if the voltage has been send properly to the arduino.
