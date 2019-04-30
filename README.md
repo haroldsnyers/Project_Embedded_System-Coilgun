@@ -1,5 +1,5 @@
 # Project_Embedded_System-Coilgun
-## introduction
+## Introduction
 This Coilgun project is a project 
 The purpose of this project was to make a school laboratory experience which could be actionned remotely from the student's home. It was demanded to use atleast 2 of 3 following : 
 - arduino
