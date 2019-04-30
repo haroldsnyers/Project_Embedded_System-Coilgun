@@ -36,6 +36,7 @@ You need to start from your command prompt node-red and go to the following pair
 After that you can download the flow for the Node-RED dashboard in JSON form. This can be done by clicking on the dropdown in the upper right corner and choosing import from clipboard. After that you can go to the dashboard by going to `http://localhost:1880/ui`.
 You should arrive to a dashboard looking like this : 
 <img src="screenshots/dashboard.png" width="600px">
+
 The Speed bloc works with the following nodes :
 - **_input text node_** to input the distance between the coilgun and the target
 - **_gauge node_** to display the time it took to reach the target
@@ -44,6 +45,7 @@ The Speed bloc works with the following nodes :
 
 The speed will only be displayed if the distance has been given and the time has been pusblished. This can be done with the following function :
 <img src="screenshots/flow-speed.png" width="600px">
+
 The voltage bloc works with the following nodes :
 - **_switch node_** to enable the launch 
 - **_gauge node_** to display the voltage selected with the slider
@@ -54,4 +56,5 @@ The voltage bloc works with the following nodes :
 
 The voltage will be send to the arduino if the switch is ON and the slider has been moved after that with the following questions :
 <img src="screenshots/flow-voltage.png" width="600px">
+
 The status mqtt IN sends a status message about the launch if the voltage has been send properly to the arduino.
