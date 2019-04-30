@@ -35,4 +35,4 @@ The write uart retrieves data from a topic of the Node-RED interface he is subsc
 You need to start from your command prompt node-red and go to the following pair `<IP:port>` in your browser `localhost:1880`
 After that you can download the flow for the Node-RED dashboard in JSON form. This can be done by clicking on the dropdown in the upper right corner and choosing import from clipboard. After that you can go to the dashboard by going to `http://localhost:1880/ui`.
 You should arrive to a dashboard looking like this : 
-![](screenshots/dashboard.png)
+<img src="screenshots/dashboard.png" width="200px">
