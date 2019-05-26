@@ -54,17 +54,17 @@ void loop()
   if(mySerial.available() > 0)
   {
     String storedData = "";
-    while(mySerial.available())          // reading data into char array 
+    // reading data into char array 
+    while(mySerial.available())          
     {
      char inChar = mySerial.read();
      storedData += inChar;
     }
     voltageValue = storedData.toInt();
     delay(500);
-    Serial.print(voltageValue);
-    Serial.write("\n");
-    // test
+    // changing verification status to now that a value has been read
     verif = 1;
+    // only if voltage value chosen is high enough, activate relays
     if (voltageValue > 14){
       Serial.print("helloboys\n");
       digitalWrite(7, HIGH);
@@ -106,13 +106,14 @@ void loop()
     Serial.print("Impact\n");
     
     impactTime = millis();
+    // Time projectile to target = time(buttonPushed) - time(IRcaptor)
     deltaT = (impactTime - passageTime );
     Serial.print(deltaT);
     Serial.print("\n");
     departed = 0;
   }    
 
-  // sending of the speed of object
+  // sending of the speed of object and output
   if (deltaT != 0){ 
     int speed1 = deltaT;
     int output = 70;
@@ -120,6 +121,7 @@ void loop()
     String speed1S = String(speed1);
     
     Serial.print("S" + speed1S);
+    // sends data with 'char' to enable recognition of the data
     mySerial.println("S" + speed1S + "O" + outputS);
     Serial.print("\n");
     Serial.print("Test confirmed\n");  
