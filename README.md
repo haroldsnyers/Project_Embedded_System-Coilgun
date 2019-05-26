@@ -16,7 +16,7 @@ When everything is setup upload the arduino file into your arduino board.
 ### Beagle Bone black
 The arduino is connected via uart to the UART1 of the BBB, p9.24 and p9.26, TX and RX respectively. One more cable is needed to connect the arduino and BBB on the same GND. 
 When everything is setup, you will need to upload the files read and write into the BBB (easy way : use filezila, connect `sftp://<IpAdress>`, username and password).
-Open then 2 bash terminals and connect to your BBB on each of them. Again on each of those terminals enter the following commands
+Open then 2 bash terminals and connect to your BBB on each of them. When connected on each of those terminals to the BBB, enter the following commands
 ```
 config-pin p9.24 uart
 config-pin p9.26 uart
