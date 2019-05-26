@@ -20,7 +20,7 @@ while True:
                 print "Serial is Open\n"
                 client.connect("localhost", 1883, 60)
 
-                msg = subscribe.simple("sensor/test", hostname="localhost")
+                msg = subscribe.simple("sensor/voltage", hostname="localhost")
                 print("%s %s" % (msg.topic, msg.payload))
                 msg = msg.payload
                 print(msg)

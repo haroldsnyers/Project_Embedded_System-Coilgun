@@ -61,8 +61,9 @@ while True:
 			valueOutput = int("".join(map(str, charsOutput)))
 			publish.single("sensor/time", valueSpeed, hostname="localhost")
 			publish.single("sensor/output", valueOutput, hostname="localhost")
-		if case2 == 2:
+		if case2 == 1:
 			valueConf = ''.join(charsConf)
+			print 'publish'
 			publish.single("sensor/conf", valueConf, hostname="localhost")
 
 

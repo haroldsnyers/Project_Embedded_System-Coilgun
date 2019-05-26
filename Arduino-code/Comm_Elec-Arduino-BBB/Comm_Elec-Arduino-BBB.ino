@@ -25,6 +25,8 @@ int voltageValue = 0;
 int test = 0;
 String confirmation = "";
 int verif = 0;
+float current;
+float inputVoltage;
 
 void setup()
 {
@@ -65,50 +67,40 @@ void loop()
     verif = 1;
     if (voltageValue > 14){
       Serial.print("helloboys\n");
-      if (15 <= voltageValue && voltageValue <= 30){
-        Serial.print("test2\n");
-        digitalWrite(testLed, HIGH);
-        delay(500);
-        digitalWrite(testLed, LOW);
-        delay(500);
-        digitalWrite(testLed, HIGH);
-        delay(500);
-        digitalWrite(testLed, LOW);
-        voltageValue = 0;
-        confirmation = "launched";
-      }
-      else if (voltageValue > 30){
-        Serial.print("test3\n");
-        digitalWrite(testLed, HIGH);
-        delay(500);
-        digitalWrite(testLed, LOW);
-        delay(500);
-        digitalWrite(testLed, HIGH);
-        delay(500);
-        digitalWrite(testLed, LOW);
-        delay(500);
-        digitalWrite(testLed, HIGH);
-        delay(500);
-        digitalWrite(testLed, LOW);
-        voltageValue = 0;
-        confirmation = "launched";
-      }
+      digitalWrite(7, HIGH);
+      delay(150);
+      digitalWrite(7, LOW);
+      confirmation = "launched";
     }  
   }
 
-  
-
+  // to detect when the projectile has been launched
   if (digitalRead(IRCaptor) == LOW and departed == 0)
   {
     passageTime = millis();
     Serial.print("detected\n");
     departed = 1;
   }
+
+  //read output current and input voltage
+  current = analogRead(A1)*(5/1024);
+  //Serial.println(current);
+  inputVoltage = analogRead(A3)*(5/1024)/(0.08879); //voltage divider 0,08879
+  if (current != 0){
+    Serial.print("Current value is : ");
+    Serial.println(current);
+  }
+  if (inputVoltage != 0){
+    Serial.print("Voltage value is : ");
+    Serial.println(inputVoltage);
+  }
+  
   
   // read the state of the pushbutton value:
   buttonState = digitalRead(buttonPin);
   
-  // check if the pushbutton is pressed.
+  // check if the pushbutton is pressed. 
+  // thus projectile has reached target
   // if it is, the buttonState is HIGH:
   if (buttonState == HIGH && departed == 1) {
     Serial.print("Impact\n");
@@ -135,6 +127,7 @@ void loop()
     test = 5; 
   }
 
+  // sends status of the launching 
   if (verif != 0){
     String conf = "not launched";
     if (confirmation != ""){
