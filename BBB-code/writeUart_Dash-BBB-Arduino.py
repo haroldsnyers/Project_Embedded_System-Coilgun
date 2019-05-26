@@ -7,6 +7,7 @@ import paho.mqtt.subscribe as subscribe
 
 client = mqtt.Client()
 
+# selecting the uart on which you want to communicate
 UART.setup("UART1")
  
 disp = serial.Serial (port = "/dev/ttyO1", baudrate=9600)
@@ -19,11 +20,13 @@ while True:
 
                 print "Serial is Open\n"
                 client.connect("localhost", 1883, 60)
-
+                
+                # reading the data coming from the topic it is subscribed to
                 msg = subscribe.simple("sensor/voltage", hostname="localhost")
                 print("%s %s" % (msg.topic, msg.payload))
                 msg = msg.payload
                 print(msg)
+                # sending only the voltage value
                 if msg != "true":
                         disp.write(msg)
                 disp.write("\n")
