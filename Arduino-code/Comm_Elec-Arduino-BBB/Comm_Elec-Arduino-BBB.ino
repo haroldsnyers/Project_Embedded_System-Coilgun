@@ -116,13 +116,13 @@ void loop()
   // sending of the speed of object and output
   if (deltaT != 0){ 
     int speed1 = deltaT;
-    int output = 70;
-    String outputS = String(output);
+    int voltageIn = 38; //TO BE REPLACED BY ANALOG READ
+    String voltInS = String(voltageIn);
     String speed1S = String(speed1);
     
     Serial.print("S" + speed1S);
     // sends data with 'char' to enable recognition of the data
-    mySerial.println("S" + speed1S + "O" + outputS);
+    mySerial.println("S" + speed1S + "O" + voltInS);
     Serial.print("\n");
     Serial.print("Test confirmed\n");  
     deltaT = 0;   

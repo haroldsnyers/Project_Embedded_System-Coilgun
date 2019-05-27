@@ -21,7 +21,7 @@ while True:
 	# initializing lists for string separation
 	chars = []
 	charsSpeed = []
-	charsOutput = []
+	charsVoltIn = []
 	charsConf = []
 	case1 = 0
 	case2 = 0
@@ -42,15 +42,15 @@ while True:
 			if chars[i] == 'S':
 				case1 = 1
 				i = i + 1
-				while chars[i] != 'O':
+				while chars[i] != 'V':
 					charsSpeed.append(chars[i])
 					i = i + 1
 					
-			# getting output data
-			if chars[i] == 'O':
+			# getting voltage data
+			if chars[i] == 'V':
 				i = i + 1
 				while chars[i] != '\r':
-					charsOutput.append(chars[i])
+					charsVoltIn.append(chars[i])
 					i = i + 1
 			
 			# getting confirmation data
@@ -65,9 +65,9 @@ while True:
 		# publish the different datasets on the right topics through MQTT
 		if case1 == 1:
 			valueSpeed = int("".join(map(str, charsSpeed)))
-			valueOutput = int("".join(map(str, charsOutput)))
+			valueVoltIn = int("".join(map(str, charsVoltIn)))
 			publish.single("sensor/time", valueSpeed, hostname="localhost")
-			publish.single("sensor/output", valueOutput, hostname="localhost")
+			publish.single("sensor/voltageIn", valueVoltIn, hostname="localhost")
 		if case2 == 1:
 			valueConf = ''.join(charsConf)
 			print 'publish'
