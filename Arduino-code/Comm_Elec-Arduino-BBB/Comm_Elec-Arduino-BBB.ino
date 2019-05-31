@@ -117,12 +117,14 @@ void loop()
   if (deltaT != 0){ 
     int speed1 = deltaT;
     int voltageIn = 38; //TO BE REPLACED BY ANALOG READ
+    int current = 5; //TO BE REPLACED BY ANALOG READ
     String voltInS = String(voltageIn);
+    String currentS = String(current);
     String speed1S = String(speed1);
     
     Serial.print("S" + speed1S);
     // sends data with 'char' to enable recognition of the data
-    mySerial.println("S" + speed1S + "O" + voltInS);
+    mySerial.println("S" + speed1S + "C" + currentS + "V" + voltInS);
     Serial.print("\n");
     Serial.print("Test confirmed\n");  
     deltaT = 0;   
@@ -135,7 +137,7 @@ void loop()
     if (confirmation != ""){
       conf = confirmation;
     }
-    mySerial.println("C" + conf);
+    mySerial.println("l" + conf);
     verif = 0;
   }
 }

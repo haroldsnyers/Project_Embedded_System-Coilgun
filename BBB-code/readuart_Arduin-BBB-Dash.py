@@ -40,12 +40,19 @@ while True:
 		while i < size1:
 			# getting speed data
 			if chars[i] == 'S':
-				case1 = 1
+				case1 = 1 #means start of frame
 				i = i + 1
-				while chars[i] != 'V':
+				while chars[i] != 'C':
 					charsSpeed.append(chars[i])
 					i = i + 1
 					
+			# getting voltage data
+			if chars[i] == 'C':
+				i = i + 1
+				while chars[i] != 'V':
+					charsVoltIn.append(chars[i])
+					i = i + 1
+
 			# getting voltage data
 			if chars[i] == 'V':
 				i = i + 1
@@ -54,8 +61,8 @@ while True:
 					i = i + 1
 			
 			# getting confirmation data
-			if chars[i] == "C":
-				case2 = 1
+			if chars[i] == "l":
+				case2 = 1 #means end of frame =>status received
 				i = i + 1
 				while chars[i] != "\r":
 					charsConf.append(chars[i])
