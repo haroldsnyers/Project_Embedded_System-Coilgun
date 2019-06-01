@@ -22,6 +22,7 @@ while True:
 	chars = []
 	charsSpeed = []
 	charsVoltIn = []
+	charsCurrent = []
 	charsConf = []
 	case1 = 0
 	case2 = 0
@@ -50,7 +51,7 @@ while True:
 			if chars[i] == 'C':
 				i = i + 1
 				while chars[i] != 'V':
-					charsVoltIn.append(chars[i])
+					charsCurrent.append(chars[i])
 					i = i + 1
 
 			# getting voltage data
@@ -73,8 +74,10 @@ while True:
 		if case1 == 1:
 			valueSpeed = int("".join(map(str, charsSpeed)))
 			valueVoltIn = int("".join(map(str, charsVoltIn)))
+			valueCurrent = int("".join(map(str, charsCurrent)))
 			publish.single("sensor/time", valueSpeed, hostname="localhost")
 			publish.single("sensor/voltageIn", valueVoltIn, hostname="localhost")
+			publish.single("sensor/current", valueCurrent, hostname="localhost")
 		if case2 == 1:
 			valueConf = ''.join(charsConf)
 			print 'publish'
