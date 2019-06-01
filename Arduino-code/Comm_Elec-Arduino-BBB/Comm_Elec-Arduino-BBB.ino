@@ -81,20 +81,6 @@ void loop()
     Serial.print("detected\n");
     departed = 1;
   }
-
-  //read output current and input voltage
-  current = analogRead(A1)*(5/1024);
-  //Serial.println(current);
-  inputVoltage = analogRead(A3)*(5/1024)/(0.08879); //voltage divider 0,08879
-  if (current != 0){
-    Serial.print("Current value is : ");
-    Serial.println(current);
-  }
-  if (inputVoltage != 0){
-    Serial.print("Voltage value is : ");
-    Serial.println(inputVoltage);
-  }
-  
   
   // read the state of the pushbutton value:
   buttonState = digitalRead(buttonPin);
@@ -116,8 +102,8 @@ void loop()
   // sending of the speed of object and output
   if (deltaT != 0){ 
     int speed1 = deltaT;
-    int voltageIn = 38; //TO BE REPLACED BY ANALOG READ
-    int current = 5; //TO BE REPLACED BY ANALOG READ
+    int voltageIn = (analogRead(A1)*(5.0/1023.0)*9.1314);
+    int current = (analogRead(A0)*(5.0/1023.0)*2.241);
     String voltInS = String(voltageIn);
     String currentS = String(current);
     String speed1S = String(speed1);
