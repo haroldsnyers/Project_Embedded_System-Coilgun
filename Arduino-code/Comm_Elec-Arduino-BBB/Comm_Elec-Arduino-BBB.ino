@@ -3,19 +3,11 @@
 
 SoftwareSerial mySerial = SoftwareSerial(10,11);
 
-// initilialisation of 
-char capacitorVoltageP = 0;
-char inputCurrentVoltageP = 1;
-
 // set pin numbers
 const char IRCaptor = 2;
 const int buttonPin = 6;     
-const char transistorLoad = 5;
-const char transistorUnload = 7;
-const char testLed = 8;
 
 // initialisation variables
-long fireTime;
 long passageTime;
 long impactTime;
 float deltaT = 0;
@@ -38,11 +30,8 @@ void setup()
   mySerial.begin(9600);
 
   // configuration of captors and transistors
-  pinMode(transistorLoad, OUTPUT);
-  pinMode(transistorUnload, OUTPUT);
   pinMode(IRCaptor, INPUT);
   pinMode(buttonPin, INPUT);
-  pinMode(testLed, OUTPUT);
   
 }
  
