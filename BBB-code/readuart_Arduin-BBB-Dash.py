@@ -17,7 +17,7 @@ disp.open()
 while True:
 	client = mqtt.Client()
 
-	client.connect("172.17.4.73", 1883, 60)
+	client.connect("localhost", 1883, 60)
 	# initializing lists for string separation
 	chars = []
 	charsSpeed = []
@@ -85,5 +85,4 @@ while True:
 
 
 disp.close()
-
 
