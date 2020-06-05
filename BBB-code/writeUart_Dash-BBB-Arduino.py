@@ -19,7 +19,7 @@ while True:
         if disp.isOpen():
 
                 print "Serial is Open\n"
-                client.connect("localhost", 1883, 60)
+                client.connect("172.17.4.73", 1883, 60)
                 
                 # reading the data coming from the topic it is subscribed to
                 msg = subscribe.simple("sensor/voltage", hostname="localhost")

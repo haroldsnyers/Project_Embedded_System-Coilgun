@@ -1,5 +1,4 @@
 #include <SoftwareSerial.h>
-#include <Wire.h>
 
 SoftwareSerial mySerial = SoftwareSerial(10,11);
 
@@ -27,11 +26,13 @@ void setup()
   // uart configuration with BBB
   pinMode(10,INPUT);
   pinMode(11,OUTPUT);
+  pinMode(8, OUTPUT);
   mySerial.begin(9600);
 
   // configuration of captors and transistors
   pinMode(IRCaptor, INPUT);
   pinMode(buttonPin, INPUT);
+  digitalWrite(8, LOW);
   
 }
  
@@ -54,11 +55,13 @@ void loop()
     // changing verification status to now that a value has been read
     verif = 1;
     // only if voltage value chosen is high enough, activate relays
+    Serial.print("helloboy\n");
     if (voltageValue > 14){
       Serial.print("helloboys\n");
-      digitalWrite(7, HIGH);
+      digitalWrite(8, HIGH);
+      current = (analogRead(A0)*(5.0/1023.0)*2.241);
       delay(150);
-      digitalWrite(7, LOW);
+      digitalWrite(8, LOW);
       confirmation = "launched";
     }  
   }
@@ -92,9 +95,9 @@ void loop()
   if (deltaT != 0){ 
     int speed1 = deltaT;
     int voltageIn = (analogRead(A1)*(5.0/1023.0)*9.1314);
-    int current = (analogRead(A0)*(5.0/1023.0)*2.241);
+    int current1 = current; 
     String voltInS = String(voltageIn);
-    String currentS = String(current);
+    String currentS = String(current1);
     String speed1S = String(speed1);
     
     Serial.print("S" + speed1S);
